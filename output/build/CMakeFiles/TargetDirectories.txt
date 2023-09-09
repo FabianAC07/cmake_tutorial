@@ -1,0 +1,3 @@
+/home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles/rebuild_cache.dir
+/home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles/edit_cache.dir
+/home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles/cmake_tutorial.dir
