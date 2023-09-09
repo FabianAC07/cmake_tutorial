@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/cmake_tutorial.dir/main.cpp.o  -o cmake_tutorial   -L/home/fabian/programming_courses/cmake_tutorial/Adder  -Wl,-rpath,/home/fabian/programming_courses/cmake_tutorial/Adder Adder/libadder.a 
