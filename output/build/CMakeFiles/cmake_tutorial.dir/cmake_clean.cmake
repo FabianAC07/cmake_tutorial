@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/cmake_tutorial.dir/adder.cpp.o"
   "CMakeFiles/cmake_tutorial.dir/main.cpp.o"
   "cmake_tutorial"
   "cmake_tutorial.pdb"

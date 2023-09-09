@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/fabian/programming_courses/cmake_tutorial/Adder 
+CXX_INCLUDES = 
 

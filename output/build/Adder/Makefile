@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles /home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles /home/fabian/programming_courses/cmake_tutorial/output/build/Adder/CMakeFiles/progress.marks
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f CMakeFiles/Makefile2 Adder/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/fabian/programming_courses/cmake_tutorial/output/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f CMakeFiles/Makefile2 Adder/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,71 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f CMakeFiles/Makefile2 Adder/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f CMakeFiles/Makefile2 Adder/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named cmake_tutorial
+# Convenience name for target.
+Adder/CMakeFiles/adder.dir/rule:
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f CMakeFiles/Makefile2 Adder/CMakeFiles/adder.dir/rule
+.PHONY : Adder/CMakeFiles/adder.dir/rule
 
-# Build rule for target.
-cmake_tutorial: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cmake_tutorial
-.PHONY : cmake_tutorial
+# Convenience name for target.
+adder: Adder/CMakeFiles/adder.dir/rule
 
-# fast build rule for target.
-cmake_tutorial/fast:
-	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/build
-.PHONY : cmake_tutorial/fast
-
-#=============================================================================
-# Target rules for targets named adder
-
-# Build rule for target.
-adder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 adder
 .PHONY : adder
 
 # fast build rule for target.
 adder/fast:
-	$(MAKE) -f Adder/CMakeFiles/adder.dir/build.make Adder/CMakeFiles/adder.dir/build
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f Adder/CMakeFiles/adder.dir/build.make Adder/CMakeFiles/adder.dir/build
 .PHONY : adder/fast
 
-main.o: main.cpp.o
+adder.o: adder.cpp.o
 
-.PHONY : main.o
+.PHONY : adder.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/main.cpp.o
-.PHONY : main.cpp.o
+adder.cpp.o:
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f Adder/CMakeFiles/adder.dir/build.make Adder/CMakeFiles/adder.dir/adder.cpp.o
+.PHONY : adder.cpp.o
 
-main.i: main.cpp.i
+adder.i: adder.cpp.i
 
-.PHONY : main.i
+.PHONY : adder.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/main.cpp.i
-.PHONY : main.cpp.i
+adder.cpp.i:
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f Adder/CMakeFiles/adder.dir/build.make Adder/CMakeFiles/adder.dir/adder.cpp.i
+.PHONY : adder.cpp.i
 
-main.s: main.cpp.s
+adder.s: adder.cpp.s
 
-.PHONY : main.s
+.PHONY : adder.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/main.cpp.s
-.PHONY : main.cpp.s
+adder.cpp.s:
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(MAKE) -f Adder/CMakeFiles/adder.dir/build.make Adder/CMakeFiles/adder.dir/adder.cpp.s
+.PHONY : adder.cpp.s
 
 # Help Target
 help:
@@ -171,11 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... cmake_tutorial"
 	@echo "... adder"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... adder.o"
+	@echo "... adder.i"
+	@echo "... adder.s"
 .PHONY : help
 
 
@@ -187,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/fabian/programming_courses/cmake_tutorial/output/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
