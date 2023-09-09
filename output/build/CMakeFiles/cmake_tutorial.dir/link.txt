@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/cmake_tutorial.dir/main.cpp.o  -o cmake_tutorial 
+/usr/bin/c++     CMakeFiles/cmake_tutorial.dir/main.cpp.o CMakeFiles/cmake_tutorial.dir/adder.cpp.o  -o cmake_tutorial 

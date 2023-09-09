@@ -5,4 +5,4 @@ cmake_minimum_required(VERSION 3.16.3)
 project(cmake_tutorial)
 
 # Create a name for the executable (project_name, tarjet)
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp adder.cpp)

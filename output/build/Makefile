@@ -123,6 +123,33 @@ cmake_tutorial/fast:
 	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/build
 .PHONY : cmake_tutorial/fast
 
+adder.o: adder.cpp.o
+
+.PHONY : adder.o
+
+# target to build an object file
+adder.cpp.o:
+	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/adder.cpp.o
+.PHONY : adder.cpp.o
+
+adder.i: adder.cpp.i
+
+.PHONY : adder.i
+
+# target to preprocess a source file
+adder.cpp.i:
+	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/adder.cpp.i
+.PHONY : adder.cpp.i
+
+adder.s: adder.cpp.s
+
+.PHONY : adder.s
+
+# target to generate assembly for a file
+adder.cpp.s:
+	$(MAKE) -f CMakeFiles/cmake_tutorial.dir/build.make CMakeFiles/cmake_tutorial.dir/adder.cpp.s
+.PHONY : adder.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... cmake_tutorial"
+	@echo "... adder.o"
+	@echo "... adder.i"
+	@echo "... adder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

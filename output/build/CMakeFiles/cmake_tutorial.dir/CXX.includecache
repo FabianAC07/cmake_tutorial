@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/fabian/programming_courses/cmake_tutorial/adder.cpp
+
 /home/fabian/programming_courses/cmake_tutorial/main.cpp
 iostream
 -
