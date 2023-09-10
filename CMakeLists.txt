@@ -2,10 +2,17 @@
 cmake_minimum_required(VERSION 3.16.3)
 
 # Create project name
-project(cmake_tutorial)
+project(cmake_tutorial VERSION 0.1)
+
+# This will configure the version of the code
+configure_file(cmake_tutorial_Config.h.in cmake_tutorial_Config.h)
 
 # Create a name for the executable (project_name, tarjet)
 add_executable(${PROJECT_NAME} main.cpp)
+
+# This includes the binary directory as an include, 
+# thus it will include it and create a version of the code
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
 # Adding subdirectories to the project (see CMakeLists.txt to see what will do in the subfolder)
 add_subdirectory(Adder)
