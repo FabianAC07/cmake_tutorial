@@ -9,12 +9,22 @@ add_executable(${PROJECT_NAME} main.cpp)
 
 # Adding subdirectories to the project (see CMakeLists.txt to see what will do in the subfolder)
 add_subdirectory(Adder)
+add_subdirectory(external/gflw)
 
 # This tells cmake to include these directories into the project
-target_include_directories(${PROJECT_NAME} PUBLIC Adder)
+target_include_directories(${PROJECT_NAME} 
+    PUBLIC Adder PUBLIC 
+    external/gflw/include
+)
 
 # This tells cmake where to find the adder 
-target_link_directories(${PROJECT_NAME} PUBLIC Adder/)
+target_link_directories(${PROJECT_NAME} 
+    PRIVATE Adder/
+    PRIVATE external/gflw/src/
+)
 
 # Link the new library to the project 
-target_link_libraries(${PROJECT_NAME} adder)
+target_link_libraries(${PROJECT_NAME} 
+    adder
+    glfw   
+)
