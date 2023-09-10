@@ -10,7 +10,7 @@ This repository contains code and resources for a CMake tutorial series based on
 
 ## Overview
 
-CMake is a powerful build system and configuration tool commonly used for C++ projects. This tutorial series, hosted by [Code, Tech, and Tutorials](https://www.youtube.com/@CodeTechandTutorials) YuoTube channel, aims to provide comprehensive guidance on using CMake effectively.
+CMake is a powerful build system and configuration tool commonly used for C++ projects. This tutorial series, hosted by [Code, Tech, and Tutorials](https://www.youtube.com/@CodeTechandTutorials) YouTube channel, aims to provide comprehensive guidance on using CMake effectively.
 
 ## License
 
@@ -18,4 +18,4 @@ This CMake tutorial series and its associated code are provided under the MIT Li
 
 ## Credits
 
-This CMake tutorial is based on the excellent content created by [Code, Tech, and Tutorials](https://www.youtube.com/@CodeTechandTutorials) YuoTube channel. I express my gratitude to them for their valuable work in doing this tutorial series. Be sure to check out their channel for more educational content.
+This CMake tutorial is based on the excellent content created by [Code, Tech, and Tutorials](https://www.youtube.com/@CodeTechandTutorials) YouTube channel. I express my gratitude to them for their valuable work in doing this tutorial series. Be sure to check out their channel for more educational content.
