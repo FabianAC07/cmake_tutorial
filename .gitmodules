@@ -1,0 +1,3 @@
+[submodule "external/gflw"]
+	path = external/gflw
+	url = https://github.com/glfw/glfw.git
