@@ -5,12 +5,29 @@ This repository contains code and resources for a CMake tutorial series based on
 ## Table of Contents
 
 - [Overview](#overview)
-- [License](#contributing)
-- [Credits](#license)
+- [Usage](#usage)
+- [License](#license)
+- [Credits](#credits)
 
 ## Overview
 
 CMake is a powerful build system and configuration tool commonly used for C++ projects. This tutorial series, hosted by [Code, Tech, and Tutorials](https://www.youtube.com/@CodeTechandTutorials) YouTube channel, aims to provide comprehensive guidance on using CMake effectively.
+
+## Usage
+
+Configure and build with cmake.
+
+### Linux command line:
+
+Run in command line 
+
+    `./configure.sh`
+    `./build.sh`
+    `./run.sh`
+
+Optional: Delete output directory:
+
+    ./delete.sh
 
 ## License
 
