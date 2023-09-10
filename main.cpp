@@ -9,6 +9,7 @@ int main(int argc, char* argv[])
 
     std::cout << add(72.1f, 73.8f) << std::endl;
 
+    // Print version of the builded code...
     std::cout << argv[0] << " Version " << cmake_tutorial_VERSION_MAJOR << "." << cmake_tutorial_VERSION_MINOR << "\n" << std::endl;
 
     GLFWwindow* window;

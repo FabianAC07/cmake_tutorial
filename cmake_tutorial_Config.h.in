@@ -1,2 +1,6 @@
+/*
+    This will allow cmake to keep track of the version number include on 
+    root CMakeLists.txt line 5 "project(cmake_tutorial VERSION 0.1)".
+*/ 
 #define cmake_tutorial_VERSION_MAJOR @cmake_tutorial_VERSION_MAJOR@
 #define cmake_tutorial_VERSION_MINOR @cmake_tutorial_VERSION_MINOR@
