@@ -72,3 +72,10 @@ target_link_libraries(${PROJECT_NAME}
 # This will add installation functionallity to the project
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 install(FILES "${PROJECT_BINARY_DIR}/cmake_tutorial_Config.h" DESTINATION include)
+
+# Adding cpack for GUI installation 
+include(InstallRequiredSystemLibraries)
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.txt")
+set(CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MAJOR "${Tutorial_VERSION_MINOR}")
+include(CPack)
