@@ -47,3 +47,6 @@ _deps
 # Build folder 
 output/build/
 [Bb][Uu][Ii][Li][Dd]/
+
+# VSCode folder
+.vscode
