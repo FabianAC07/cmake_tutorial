@@ -1,13 +1,20 @@
 #include <iostream>
-#include "Adder/adder.h"
 #include <GLFW/glfw3.h>
 #include <cmake_tutorial_Config.h>
+
+#ifdef USE_ADDER
+    #include "adder.h"
+#endif
 
 int main(int argc, char* argv[])
 {
     std::cout << "Hello world!\n" << std::endl;
 
-    std::cout << add(72.1f, 73.8f) << std::endl;
+#ifdef USE_ADDER
+    std::cout << "Using libAdder: " << add(72.1f, 73.8f) << std::endl;
+#else
+    std::cout << "NOT using libAdder: " << 72.1f + 73.8f << std::endl;
+#endif
 
     // Print version of the builded code...
     std::cout << argv[0] << " Version " << cmake_tutorial_VERSION_MAJOR << "." << cmake_tutorial_VERSION_MINOR << "\n" << std::endl;
