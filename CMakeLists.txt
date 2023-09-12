@@ -68,3 +68,7 @@ target_link_libraries(${PROJECT_NAME}
     ${EXTRA_LINKS}
     glfw   
 )
+
+# This will add installation functionallity to the project
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/cmake_tutorial_Config.h" DESTINATION include)
