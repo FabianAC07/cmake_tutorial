@@ -50,3 +50,6 @@ output/build/
 
 # VSCode folder
 .vscode
+
+# build 
+build
