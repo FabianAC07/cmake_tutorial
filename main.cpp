@@ -1,6 +1,10 @@
 #include <iostream>
-#include <GLFW/glfw3.h>
 #include <cmake_tutorial_Config.h>
+
+#include <GL/glew.h>
+#include <GL/glu.h>
+
+#include <GLFW/glfw3.h>
 
 #ifdef USE_ADDER
     #include "adder.h"

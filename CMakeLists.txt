@@ -4,6 +4,44 @@ cmake_minimum_required(VERSION 3.16.3)
 # Create project name
 project(cmake_tutorial VERSION 0.1)
 
+# ----------------- FIND LibGLEW -------------------------------------------------------
+# This will look and find a library, in this case libglew
+# In cmake version 3.16 there is no argument [REQUIRED], which would stop the configuration process
+find_library(FOUND_GLEW_LIB glew NAME glew2 GLEW GLEW2 DOC "glew library" HINTS /usr/lib/x86_64-linux-gnu/)
+
+# Since there is no [REQUIRED], it is possible to add some logic in case cmake do not find the library
+# if(${myglewlib}) # or: 
+if (${FOUND_GLEW_LIB} STREQUAL FOUND_GLEW_LIB-NOTFOUND) 
+    message(FATAL_ERROR "No libglew has been found, exiting. VAR = ${FOUND_GLEW_LIB}")
+else()
+    message(STATUS "libglew has been found as ${FOUND_GLEW_LIB}")
+endif()
+# ----------------- END FIND LibGLEW -------------------------------------------------------
+
+# ----------------- FIND LibGLU -------------------------------------------------------
+find_library(FOUND_GLU_LIB glu NAME GLU DOC "glu library" HINTS /usr/lib/x86_64-linux-gnu/)
+
+# Since there is no [REQUIRED], it is possible to add some logic in case cmake do not find the library
+# if(${myglewlib}) # or: 
+if (${FOUND_GLU_LIB} STREQUAL FOUND_GLU_LIB-NOTFOUND) 
+    message(FATAL_ERROR "No libglu has been found, exiting. VAR = ${FOUND_GLU_LIB}")
+else()
+    message(STATUS "libglu has been found as ${FOUND_GLU_LIB}")
+endif()
+# ----------------- END FIND LibGLU -------------------------------------------------------
+
+# ----------------- FIND LibGL -------------------------------------------------------
+find_library(FOUND_GL_LIB gl NAME GL DOC "gl library" HINTS /usr/lib/x86_64-linux-gnu/)
+
+# Since there is no [REQUIRED], it is possible to add some logic in case cmake do not find the library
+# if(${myglewlib}) # or: 
+if (${FOUND_GL_LIB} STREQUAL FOUND_GL_LIB-NOTFOUND) 
+    message(FATAL_ERROR "No libgl has been found, exiting. VAR = ${FOUND_GL_LIB}")
+else()
+    message(STATUS "libgl has been found as ${FOUND_GL_LIB}")
+endif()
+# ----------------- END FIND LibGLU -------------------------------------------------------
+
 # Adding options to add or not libraries 
 option(USE_ADDER "A simple library for adding 2 float numbers." ON)
 
@@ -66,7 +104,10 @@ target_link_directories(${PROJECT_NAME}
 # Link the new library to the project 
 target_link_libraries(${PROJECT_NAME} 
     ${EXTRA_LINKS}
-    glfw   
+    glfw
+    ${FOUND_GLEW_LIB}
+    ${FOUND_GLU_LIB}
+    ${FOUND_GL_LIB}
 )
 
 # This will add installation functionallity to the project
