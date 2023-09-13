@@ -1,65 +1,6 @@
-// #include <iostream>
-// #include <cmake_tutorial_Config.h>
-
-// #include <GL/glew.h>
-// #include <GL/glu.h>
-
-// #include <GLFW/glfw3.h>
-
-// #ifdef USE_ADDER
-//     #include "adder.h"
-// #endif
-
-// int main(int argc, char* argv[])
-// {
-//     std::cout << "Hello world!\n" << std::endl;
-
-// #ifdef USE_ADDER
-//     std::cout << "Using libAdder: " << add(72.1f, 73.8f) << std::endl;
-// #else
-//     std::cout << "NOT using libAdder: " << 72.1f + 73.8f << std::endl;
-// #endif
-
-//     // Print version of the builded code...
-//     std::cout << argv[0] << " Version " << cmake_tutorial_VERSION_MAJOR << "." << cmake_tutorial_VERSION_MINOR << "\n" << std::endl;
-
-//     GLFWwindow* window;
-//     int width, height;
-
-//     if( !glfwInit() )
-//     {
-//         fprintf( stderr, "Failed to initialize GLFW\n" );
-//         exit( EXIT_FAILURE );
-//     }
-
-
-//     window = glfwCreateWindow( 300, 300, "Gears", NULL, NULL );
-//     if (!window)
-//     {
-//         fprintf( stderr, "Failed to open GLFW window\n" );
-//         glfwTerminate();
-//         exit( EXIT_FAILURE );
-//     }
-
-//     // Main loop
-//     while( !glfwWindowShouldClose(window) )
-//     {
-//         // Swap buffers
-//         glfwSwapBuffers(window);
-//         glfwPollEvents();
-//     }
-
-//     // Terminate GLFW
-//     glfwTerminate();
-
-
-//     return 0;
-// }
-
 /*
     Using sample code on how to use GLEW
     Reference: https://gist.github.com/iondune/bf24795910abdcfa3360
-
 */
 
 #include <GL/glew.h>
@@ -177,8 +118,16 @@ int main()
 	CheckedGLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Elements), Elements, GL_STATIC_DRAW));
 
 	GLint Compiled;
-	GLuint VertexShader = CheckedGLResult(glCreateShader(GL_VERTEX_SHADER));
-    // GLuint VertexShader = CheckedGLCall(glCreateShader(GL_VERTEX_SHADER));
+    /*
+        Changed CheckedGLResult to CheckedGLCall due to compile error: 
+
+        error: ‘CheckedGLResult’ was not declared in this scope; did you mean ‘CheckedGLCall’?
+        121 |  GLuint VertexShader = CheckedGLResult(glCreateShader(GL_VERTEX_SHADER));
+            |                        ^~~~~~~~~~~~~~~
+            |                        CheckedGLCall
+    */
+	// GLuint VertexShader = CheckedGLResult(glCreateShader(GL_VERTEX_SHADER));
+    GLuint VertexShader = CheckedGLCall(glCreateShader(GL_VERTEX_SHADER));
 	CheckedGLCall(glShaderSource(VertexShader, 1, & VertexShaderSource, NULL));
 	CheckedGLCall(glCompileShader(VertexShader));
 	CheckedGLCall(glGetShaderiv(VertexShader, GL_COMPILE_STATUS, & Compiled));
@@ -188,8 +137,8 @@ int main()
 		PrintShaderInfoLog(VertexShader);
 	}
 
-	GLuint FragmentShader = CheckedGLResult(glCreateShader(GL_FRAGMENT_SHADER));
-    // GLuint FragmentShader = CheckedGLCall(glCreateShader(GL_FRAGMENT_SHADER));
+	// GLuint FragmentShader = CheckedGLResult(glCreateShader(GL_FRAGMENT_SHADER));
+    GLuint FragmentShader = CheckedGLCall(glCreateShader(GL_FRAGMENT_SHADER));
 	CheckedGLCall(glShaderSource(FragmentShader, 1, & FragmentShaderSource, NULL));
 	CheckedGLCall(glCompileShader(FragmentShader));
 	CheckedGLCall(glGetShaderiv(FragmentShader, GL_COMPILE_STATUS, & Compiled));
@@ -199,16 +148,16 @@ int main()
 		PrintShaderInfoLog(FragmentShader);
 	}
 
-	GLuint ShaderProgram = CheckedGLResult(glCreateProgram());
-    // GLuint ShaderProgram = CheckedGLCall(glCreateProgram());
+	// GLuint ShaderProgram = CheckedGLResult(glCreateProgram());
+    GLuint ShaderProgram = CheckedGLCall(glCreateProgram());
 	CheckedGLCall(glAttachShader(ShaderProgram, VertexShader));
 	CheckedGLCall(glAttachShader(ShaderProgram, FragmentShader));
 	CheckedGLCall(glBindFragDataLocation(ShaderProgram, 0, "outColor"));
 	CheckedGLCall(glLinkProgram(ShaderProgram));
 	CheckedGLCall(glUseProgram(ShaderProgram));
 
-	GLint PositionAttribute = CheckedGLResult(glGetAttribLocation(ShaderProgram, "position"));
-    // GLint PositionAttribute = CheckedGLCall(glGetAttribLocation(ShaderProgram, "position"));
+	// GLint PositionAttribute = CheckedGLResult(glGetAttribLocation(ShaderProgram, "position"));
+    GLint PositionAttribute = CheckedGLCall(glGetAttribLocation(ShaderProgram, "position"));
 	CheckedGLCall(glEnableVertexAttribArray(PositionAttribute));
 
 	CheckedGLCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
